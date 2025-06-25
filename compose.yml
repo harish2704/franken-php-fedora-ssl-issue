@@ -1,0 +1,52 @@
+services:
+  rocky:
+    image: 'rockylinux:9.3'
+    extra_hosts:
+    - "localhost.in:127.0.0.1"
+    volumes:
+      - ./:/var/www/html
+    entrypoint: ["/var/www/html/init.sh"]
+    environment:
+      - CADDY_GLOBAL_OPTIONS=debug
+    ports:
+      - "2080:80"
+      - "2443:443"
+
+  fedora:
+    image: 'fedora:42'
+    extra_hosts:
+    - "localhost.in:127.0.0.1"
+    volumes:
+      - ./:/var/www/html
+    entrypoint: ["/var/www/html/init.sh"]
+    environment:
+      - CADDY_GLOBAL_OPTIONS=debug
+    ports:
+      - "3080:80"
+      - "3443:443"
+
+  debian:
+    image: 'debian:12'
+    extra_hosts:
+    - "localhost.in:127.0.0.1"
+    volumes:
+      - ./:/var/www/html
+    entrypoint: ["/var/www/html/init.sh"]
+    environment:
+      - CADDY_GLOBAL_OPTIONS=debug
+    ports:
+      - "4080:80"
+      - "4443:443"
+
+  ubuntu:
+    image: 'ubuntu:24.04'
+    extra_hosts:
+    - "localhost.in:127.0.0.1"
+    volumes:
+      - ./:/var/www/html
+    entrypoint: ["/var/www/html/init.sh"]
+    environment:
+      - CADDY_GLOBAL_OPTIONS=debug
+    ports:
+      - "5080:80"
+      - "5443:443"

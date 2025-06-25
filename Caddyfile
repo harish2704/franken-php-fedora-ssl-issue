@@ -1,0 +1,11 @@
+{
+	skip_install_trust
+}
+
+localhost.in {
+	php_server {
+		root public
+		try_files {path} index.php
+	}
+	tls internal
+}
